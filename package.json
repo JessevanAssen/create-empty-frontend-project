@@ -1,0 +1,12 @@
+{
+	"name": "@jessevanassen/create-empty-frontend-project",
+	"version": "0.1.0",
+	"private": true,
+	"bin": {
+		"create-empty-frontend-project": "./cli.js"
+	},
+	"dependencies": {
+		"yeoman-environment": "^2.10.3",
+		"yeoman-generator": "^4.11.0"
+	}
+}
