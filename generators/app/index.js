@@ -31,4 +31,9 @@ module.exports = class extends Generator {
 	install() {
 		this.npmInstall([]);
 	}
+
+	end() {
+		this.spawnCommandSync('git', ['add', '--all'], { cwd: this.destinationPath() });
+		this.spawnCommandSync('git', ['commit', '--message', 'Set up project'], { cwd: this.destinationPath() });
+	}
 };
