@@ -12,8 +12,7 @@ module.exports = class extends Generator {
 	}
 
 	get skip() {
-		const { answers: { enable = false } = {} } = this;
-		return !enable;
+		return this.answers?.enable !== true;
 	}
 
 	writing() {
@@ -33,7 +32,7 @@ module.exports = class extends Generator {
 			this.destinationPath('package.json'),
 			{
 				scripts: {
-					'test': 'jest'
+					'test': 'node --experimental-vm-modules ./node_modules/.bin/jest'
 				}
 			}
 		);
@@ -58,6 +57,6 @@ module.exports = class extends Generator {
 	install() {
 		if (this.skip) return;
 
-		this.npmInstall(['@babel/core', '@babel/preset-env', 'jest'], { '--save-dev': true });
+		this.npmInstall(['jest'], { '--save-dev': true });
 	}
 };

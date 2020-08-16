@@ -12,8 +12,7 @@ module.exports = class extends Generator {
 	}
 
 	get skip() {
-		const { answers: { enable = false } = {} } = this;
-		return !enable;
+		return this.answers?.enable !== true;
 	}
 
 	writing() {
